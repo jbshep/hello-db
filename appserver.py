@@ -9,7 +9,8 @@ import os
 app = Flask(__name__)
 app.secret_key = b'REPLACE_ME_x#pi*CO0@^z'
 
-sqlite_uri = 'sqlite:///' + os.path.abspath(os.path.curdir) + '/test.db'
+#sqlite_uri = 'sqlite:///' + os.path.abspath(os.path.curdir) + '/test.db'
+sqlite_uri = 'sqlite:///' + os.environ['FLASK_DB_PATH'] + '/test.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = sqlite_uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
